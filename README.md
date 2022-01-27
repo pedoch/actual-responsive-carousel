@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Actual Responsive Carousel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Documentation
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+##### npm:
 
-### `npm start`
+### `npm install actual-responsive-carousel`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### yarn:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `yarn add actual-responsive-carousel` \
 
-### `npm test`
+### Example
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+import React from "react";
+import { Carousel, Slide } from "actual-responsive-carousel";
 
-### `npm run build`
+export default const SimpleSlider = () => {
+  let props = {
+    auto: true,
+    speed: 500,
+    height: 400,
+    duration: 3000,
+    breakpoints: {
+      phone: 1,
+      tab: 2,
+      laptop: 3,
+      largeScreen: 5,
+      extraLargeScreen: 8,
+    },
+  };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <Carousel {...props}>
+      <Slide breakpoints={props.breakpoints}>
+        <h3>1</h3>
+      </Slide>
+      <Slide breakpoints={props.breakpoints}>
+        <h3>2</h3>
+      </Slide>
+      <Slide breakpoints={props.breakpoints}>
+        <h3>3</h3>
+      </Slide>
+      <Slide breakpoints={props.breakpoints}>
+        <h3>4</h3>
+      </Slide>
+      <Slide breakpoints={props.breakpoints}>
+        <h3>5</h3>
+      </Slide>
+    </Carousel>
+  );
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Props
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| name        | description                                                                                                                                              | type                       | default value               |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | --------------------------- |
+| height      | This will set the `height` of the carousel container.                                                                                                    | `Number` (in px)           | unset                       |
+| width       | This will set the `width` of the carousel container.                                                                                                     | `Number` (in px)           | unset                       |
+| auto        | This determines whether the carousel slides would play without user interaction                                                                          | `Boolean`                  | false                       |
+| noControls  | This determines if the controls of the carousel (the left and right arrow) will show. If set to false the user will not be able to control the carousel. | `Boolean`                  | false                       |
+| leftButton  | This is the left arrow button of the carousel. Passing a `ReactNode` will replace the default button                                                     | `ReactNode`                | unset                       |
+| rightButton | This is the right arrow button of the carousel. Passing a `ReactNode` will replace the default button.                                                   | `ReactNode`                | unset                       |
+| duration    | This is the duration that will be spent on each slide if auto is set to true.                                                                            | `Number` (in milliseconds) | `5000`                      |
+| breakPoints | This is an object that allows you set the number of slides to be show at pre-specified break points. For more information [check here](#break-points).   | JavaScript object          | [check here](#break-points) |
 
-### `npm run eject`
+#### Break points
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The `breakpoints` props look like this:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+{
+  phone: 1,               // max-width: 480px
+  tab: 3,                 // max-width: 768px
+  laptop: 4,              // max-width: 1399px
+  largeScreen: 6,         // max-width: 1959px
+  extraLargeScreen: 10,   // max-width: > 1960px
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The default values for each break point are as follows:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```javascript
+phone: 1;
+tab: 2;
+laptop: 3;
+largeScreen: 5;
+extraLargeScreen: 8;
+```
 
-## Learn More
+##
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Keywords
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[carousel](https://www.npmjs.com/search?q=keywords:carousel), [responsive carousel](https://www.npmjs.com/search?q=keywords:responsive+carousel), [actual responsive carousel](https://www.npmjs.com/search?q=keywords:actual+responsive+carousel), [slider](https://www.npmjs.com/search?q=keywords:slider), [image slider](https://www.npmjs.com/search?q=keywords:image+slider)
