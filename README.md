@@ -10,7 +10,7 @@
 
 ##### yarn:
 
-### `yarn add actual-responsive-carousel` \
+### `yarn add actual-responsive-carousel`
 
 ### Example
 
@@ -91,9 +91,3 @@ laptop: 3;
 largeScreen: 5;
 extraLargeScreen: 8;
 ```
-
-##
-
-#### Keywords
-
-[carousel](https://www.npmjs.com/search?q=keywords:carousel), [responsive carousel](https://www.npmjs.com/search?q=keywords:responsive+carousel), [actual responsive carousel](https://www.npmjs.com/search?q=keywords:actual+responsive+carousel), [slider](https://www.npmjs.com/search?q=keywords:slider), [image slider](https://www.npmjs.com/search?q=keywords:image+slider)
