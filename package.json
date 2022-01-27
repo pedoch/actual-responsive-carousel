@@ -1,7 +1,7 @@
 {
   "name": "actual-responsive-carousel",
   "description": "A simple react library that provides a very extensive and customizable carousel component that is ACTUALLY responsive in everyway possible.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "author": "Oghenechuko Pedro",
