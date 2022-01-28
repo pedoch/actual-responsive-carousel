@@ -16,7 +16,21 @@ const SlideStyled = styled.div`
   min-height: 100%;
 `;
 
-const SliderContentStyled = styled.div`
+const SliderContentInner = ({
+  innerRef,
+  size,
+  transform,
+  children,
+  ...props
+}) => {
+  return (
+    <div {...props} size={size} ref={innerRef}>
+      {children}
+    </div>
+  );
+};
+
+const SliderContentStyled = styled(SliderContentInner)`
   transform: translateX(-${(props) => props.transform}px);
   transition: transform ease-out 0.45s;
   width: 100%;
@@ -306,22 +320,20 @@ const SliderContent = ({
     return () => window.removeEventListener("resize", getWidth);
   }, []);
 
-  return (
-    <SliderContentStyled
-      transform={() => {
-        let transform = 0;
+  const props = {
+    transform: () => {
+      let transform = 0;
 
-        if (currentIndex <= size - 1) transform = 0;
-        else transform = (innerWidth / size) * (currentIndex - (size - 1));
+      if (currentIndex <= size - 1) transform = 0;
+      else transform = (innerWidth / size) * (currentIndex - (size - 1));
 
-        return transform.toString();
-      }}
-      size={size}
-      ref={ref}
-    >
-      {children}
-    </SliderContentStyled>
-  );
+      return transform.toString();
+    },
+    innerRef: ref,
+    size: size,
+  };
+
+  return <SliderContentStyled {...props}>{children}</SliderContentStyled>;
 };
 
 export const Slide = ({ children, breakpoints }) => {
