@@ -30,7 +30,7 @@ stories.add("App", () => {
   };
 
   return (
-    <Carousel breakpoints={breakpoints} height={200}>
+    <Carousel breakpoints={breakpoints} duration={3000} height={200}>
       <Slide breakpoints={breakpoints}>
         <p>Hello</p>
       </Slide>

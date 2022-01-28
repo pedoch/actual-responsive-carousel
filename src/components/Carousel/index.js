@@ -94,25 +94,27 @@ export const Carousel = ({
   leftButton,
   rightButton,
   duration,
+  infinite = true,
 }) => {
   const [propsValues, setPropsValues] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
   const [childrenSlides, setChildrenSlides] = useState([]);
   const [carouselSlideShow, setCarouselSlideShow] = useState(null);
+  const [slideSize, setSlideSize] = useState(0);
 
   const [size, setSize] = useState([0, 0]);
 
-  let slideSize =
-    size[0] >= 1960
-      ? breakpoints?.extraLargeScreen ?? 8
-      : size[0] >= 1440
-      ? breakpoints?.largeScreen ?? 5
-      : size[0] >= 769
-      ? breakpoints?.laptop ?? 3
-      : size[0] >= 481
-      ? breakpoints?.tab ?? 2
-      : breakpoints?.phone ?? 1;
+  // let slideSize =
+  //   size[0] >= 1960
+  //     ? breakpoints?.extraLargeScreen ?? 8
+  //     : size[0] >= 1440
+  //     ? breakpoints?.largeScreen ?? 5
+  //     : size[0] >= 769
+  //     ? breakpoints?.laptop ?? 3
+  //     : size[0] >= 481
+  //     ? breakpoints?.tab ?? 2
+  //     : breakpoints?.phone ?? 1;
 
   const canUseDOM = typeof window !== "undefined";
   const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
@@ -183,7 +185,19 @@ export const Carousel = ({
     if (height) properties = { ...properties, height };
     if (width) properties = { ...properties, width };
 
-    setCurrentIndex(slideSize - 1);
+    let slideSizeTemp =
+      size[0] >= 1960
+        ? breakpoints?.extraLargeScreen ?? 8
+        : size[0] >= 1440
+        ? breakpoints?.largeScreen ?? 5
+        : size[0] >= 769
+        ? breakpoints?.laptop ?? 3
+        : size[0] >= 481
+        ? breakpoints?.tab ?? 2
+        : breakpoints?.phone ?? 1;
+
+    setSlideSize(slideSizeTemp);
+    setCurrentIndex(slideSizeTemp - 1);
 
     setPropsValues(properties);
 
@@ -198,16 +212,16 @@ export const Carousel = ({
         }, slideShowDuration)
       );
     }
-  }, [height, width, breakpoints, auto]);
+  }, [height, width, breakpoints, auto, size]);
 
   return (
     <CarouselContainerStyled>
       <div className="secondary-container" style={{ ...propsValues }}>
         <span
           className={`arrow left-arrow ${
-            currentIndex === slideSize - 1 && "hidden"
-          } ${numberOfChildren === slideSize && "hidden"} ${
-            noControls && "hidden"
+            currentIndex === slideSize - 1 && !infinite && "hidden"
+          } ${numberOfChildren === slideSize && !infinite && "hidden"} ${
+            noControls && !infinite && "hidden"
           }`}
           onClick={() => onPrevClicked()}
           title="Previous Slide"
@@ -242,9 +256,9 @@ export const Carousel = ({
         </div>
         <span
           className={`arrow right-arrow ${
-            currentIndex === numberOfChildren - 1 && "hidden"
-          } ${numberOfChildren == slideSize && "hidden"} ${
-            noControls && "hidden"
+            currentIndex === numberOfChildren - 1 && !infinite && "hidden"
+          } ${numberOfChildren == slideSize && !infinite && "hidden"} ${
+            noControls && !infinite && "hidden"
           }`}
           ref={forwardButtonRef}
           onClick={() => onNextClicked()}
