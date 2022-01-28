@@ -6,11 +6,11 @@
 
 ##### npm:
 
-### `npm install actual-responsive-carousel`
+`npm install actual-responsive-carousel`
 
 ##### yarn:
 
-### `yarn add actual-responsive-carousel`
+`yarn add actual-responsive-carousel`
 
 ### Example
 
@@ -61,11 +61,12 @@ export default const SimpleSlider = () => {
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | --------------------------- |
 | height      | This will set the `height` of the carousel container.                                                                                                    | `Number` (in px)           | unset                       |
 | width       | This will set the `width` of the carousel container.                                                                                                     | `Number` (in px)           | unset                       |
-| auto        | This determines whether the carousel slides would play without user interaction                                                                          | `Boolean`                  | false                       |
-| noControls  | This determines if the controls of the carousel (the left and right arrow) will show. If set to false the user will not be able to control the carousel. | `Boolean`                  | false                       |
+| auto        | This determines if the carousel slides would play without user interaction                                                                               | `Boolean`                  | `false`                     |
+| noControls  | This determines if the controls of the carousel (the left and right arrow) will show. If set to false the user will not be able to control the carousel. | `Boolean`                  | `false`                     |
 | leftButton  | This is the left arrow button of the carousel. Passing a `ReactNode` will replace the default button                                                     | `ReactNode`                | unset                       |
 | rightButton | This is the right arrow button of the carousel. Passing a `ReactNode` will replace the default button.                                                   | `ReactNode`                | unset                       |
 | duration    | This is the duration that will be spent on each slide if auto is set to true.                                                                            | `Number` (in milliseconds) | `5000`                      |
+| infinite    | This determines if the carousel will scroll infinitely (when the carousel reaches the end, it goes back to the first slide and vice versa)               | `Boolean`                  | `true`                      |
 | breakPoints | This is an object that allows you set the number of slides to be show at pre-specified break points. For more information [check here](#break-points).   | JavaScript object          | [check here](#break-points) |
 
 #### Break points
