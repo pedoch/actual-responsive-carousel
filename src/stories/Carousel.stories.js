@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
 
 import { Carousel, Slide } from "../components";
@@ -29,23 +29,35 @@ stories.add("App", () => {
     extraLargeScreen: 8,
   };
 
+  const [count, setCount] = useState(0);
+
   return (
-    <Carousel breakpoints={breakpoints} duration={3000} height={200}>
-      <Slide breakpoints={breakpoints}>
-        <p>Hello</p>
-      </Slide>
-      <Slide breakpoints={breakpoints}>
-        <p>Hi there</p>
-      </Slide>
-      <Slide breakpoints={breakpoints}>
-        <p>How are you doing</p>
-      </Slide>
-      <Slide breakpoints={breakpoints}>
-        <p>I miss you</p>
-      </Slide>
-      <Slide breakpoints={breakpoints}>
-        <p>Okay, bye now</p>
-      </Slide>
-    </Carousel>
+    <>
+      <Carousel breakpoints={breakpoints} duration={3000} height={150}>
+        <Slide breakpoints={breakpoints}>
+          <p>Hello</p>
+        </Slide>
+        <Slide breakpoints={breakpoints}>
+          <p>Hi there</p>
+        </Slide>
+        <Slide breakpoints={breakpoints}>
+          <p>How are you doing</p>
+        </Slide>
+        <Slide breakpoints={breakpoints}>
+          <p>I miss you</p>
+        </Slide>
+        <Slide breakpoints={breakpoints}>
+          <p>Okay, bye now</p>
+        </Slide>
+      </Carousel>
+      <p>Current count is {count}</p>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Increase
+      </button>
+    </>
   );
 });

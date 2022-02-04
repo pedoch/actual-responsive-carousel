@@ -226,7 +226,7 @@ export const Carousel = ({
         }, slideShowDuration)
       );
     }
-  }, [height, width, breakpoints, auto, size]);
+  }, [size]);
 
   return (
     <CarouselContainerStyled>
