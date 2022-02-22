@@ -304,7 +304,8 @@ const SliderContent = ({
   const ref = useRef(null);
 
   const getWidth = () => {
-    ref.current ? setInnerWidth(ref.current.offsetWidth) : setInnerWidth(0);
+    if (ref.current) setInnerWidth(ref.current.offsetWidth);
+    else setInnerWidth(0);
   };
 
   useEffect(() => {
@@ -357,14 +358,14 @@ export const Slide = ({ children, breakpoints }) => {
       className=""
       size={
         size[0] >= 1960
-          ? breakpoints?.extraLargeScreen ?? 8
+          ? breakpoints?.extraLargeScreen || 8
           : size[0] >= 1440
-          ? breakpoints?.largeScreen ?? 5
+          ? breakpoints?.largeScreen || 5
           : size[0] >= 769
-          ? breakpoints?.laptop ?? 3
+          ? breakpoints?.laptop || 3
           : size[0] >= 481
-          ? breakpoints?.tab ?? 2
-          : breakpoints?.phone ?? 1
+          ? breakpoints?.tab || 2
+          : breakpoints?.phone || 1
       }
     >
       {children}

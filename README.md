@@ -21,7 +21,6 @@ import { Carousel, Slide } from "actual-responsive-carousel";
 export default const SimpleSlider = () => {
   let props = {
     auto: true,
-    speed: 500,
     height: 400,
     duration: 3000,
     breakpoints: {
