@@ -121,14 +121,14 @@ export const Carousel = ({
 
   // let slideSize =
   //   size[0] >= 1960
-  //     ? breakpoints?.extraLargeScreen ?? 8
+  //     ? breakpoints?.extraLargeScreen || 8
   //     : size[0] >= 1440
-  //     ? breakpoints?.largeScreen ?? 5
+  //     ? breakpoints?.largeScreen || 5
   //     : size[0] >= 769
-  //     ? breakpoints?.laptop ?? 3
+  //     ? breakpoints?.laptop || 3
   //     : size[0] >= 481
-  //     ? breakpoints?.tab ?? 2
-  //     : breakpoints?.phone ?? 1;
+  //     ? breakpoints?.tab || 2
+  //     : breakpoints?.phone || 1;
 
   const canUseDOM = typeof window !== "undefined";
   const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
@@ -143,7 +143,7 @@ export const Carousel = ({
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const slideShowDuration = duration ?? 5000;
+  const slideShowDuration = duration || 5000;
 
   const forwardButtonRef = useRef(null);
   const currentIndexRef = useRef(currentIndex);
@@ -201,14 +201,14 @@ export const Carousel = ({
 
     let slideSizeTemp =
       size[0] >= 1960
-        ? breakpoints?.extraLargeScreen ?? 8
+        ? breakpoints?.extraLargeScreen || 8
         : size[0] >= 1440
-        ? breakpoints?.largeScreen ?? 5
+        ? breakpoints?.largeScreen || 5
         : size[0] >= 769
-        ? breakpoints?.laptop ?? 3
+        ? breakpoints?.laptop || 3
         : size[0] >= 481
-        ? breakpoints?.tab ?? 2
-        : breakpoints?.phone ?? 1;
+        ? breakpoints?.tab || 2
+        : breakpoints?.phone || 1;
 
     setSlideSize(slideSizeTemp);
     setCurrentIndex(slideSizeTemp - 1);
@@ -255,14 +255,14 @@ export const Carousel = ({
             setChildrenSlidesFunc={setChildrenSlidesFunc}
             size={
               size[0] >= 1960
-                ? breakpoints?.extraLargeScreen ?? 8
+                ? breakpoints?.extraLargeScreen || 8
                 : size[0] >= 1440
-                ? breakpoints?.largeScreen ?? 5
+                ? breakpoints?.largeScreen || 5
                 : size[0] >= 769
-                ? breakpoints?.laptop ?? 3
+                ? breakpoints?.laptop || 3
                 : size[0] >= 481
-                ? breakpoints?.tab ?? 2
-                : breakpoints?.phone ?? 1
+                ? breakpoints?.tab || 2
+                : breakpoints?.phone || 1
             }
           >
             {children}
